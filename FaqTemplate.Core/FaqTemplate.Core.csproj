@@ -43,6 +43,10 @@
     <Compile Include="Domain\FaqRequest.cs" />
     <Compile Include="Domain\FaqResponse.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\IFaqRequestRepository.cs" />
+    <Compile Include="Repositories\IFaqResponseRepository.cs" />
+    <Compile Include="Services\ICacheService.cs" />
+    <Compile Include="Services\IFaqService.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
