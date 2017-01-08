@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FaqTemplateBot
+namespace FaqTemplate.Core.Domain
 {
-    public class Class1
+    class FaqResponse
     {
     }
 }
