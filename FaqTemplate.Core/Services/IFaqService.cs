@@ -9,6 +9,6 @@ namespace FaqTemplate.Core.Services
 {
     public interface IFaqService<T>
     {
-        FaqResponse<T> AskThenIAnswer(FaqRequest request);
+        Task<FaqResponse<T>> AskThenIAnswer(FaqRequest request);
     }
 }

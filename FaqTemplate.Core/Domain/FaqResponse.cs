@@ -9,5 +9,6 @@ namespace FaqTemplate.Core.Domain
     public class FaqResponse<T>
     {
         public T Answer { get; set; }
+        public float Score { get; set; }
     }
 }
