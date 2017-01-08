@@ -8,5 +8,7 @@ namespace FaqTemplate.Core.Domain
 {
     public class FaqRequest
     {
+        public string Domain { get; set; }
+        public string Ask { get; set; }
     }
 }

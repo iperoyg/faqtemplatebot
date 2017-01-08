@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace FaqTemplate.Core.Domain
 {
-    public class FaqResponse
+    public class FaqResponse<T>
     {
+        public T Answer { get; set; }
     }
 }
