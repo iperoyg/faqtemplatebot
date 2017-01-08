@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FaqTemplate.Core.Domain
 {
-    class FaqRequest
+    public class FaqRequest
     {
     }
 }

@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FaqTemplate.Core.Domain
+namespace FaqTemplate.Core.Repositories
 {
-    public class FaqResponse
+    public interface IFaqResponseRepository
     {
     }
 }
