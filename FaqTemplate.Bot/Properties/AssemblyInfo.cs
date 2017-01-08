@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("FaqTemplateBot")]
+[assembly: AssemblyTitle("FaqTemplate.Bot")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("FaqTemplateBot")]
+[assembly: AssemblyProduct("FaqTemplate.Bot")]
 [assembly: AssemblyCopyright("Copyright ©  2017")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("fde5c43a-c674-4c9a-bcb2-09bc779750bb")]
+[assembly: Guid("c6bba99e-6b42-4155-b3e7-2a0a6c48fb7b")]
 
 // Version information for an assembly consists of the following four values:
 //
