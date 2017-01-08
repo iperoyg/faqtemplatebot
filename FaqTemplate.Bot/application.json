@@ -7,9 +7,14 @@
       "mediaType": "text/plain"
     }
   ],
+  "settingsType": "Settings",
   "settings": {
-    "setting1": "value1"
+    "qnaMaker": {
+      "key": "",
+      "baseId": ""
+    }
   },
   "startupType": "Startup",
+  "serviceProviderType": "ServiceProvider",
   "schemaVersion": 2
 }
