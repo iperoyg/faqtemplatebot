@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FaqTemplate.Core", "FaqTemp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FaqTemplate.Infrastructure", "FaqTemplate.Infrastructure\FaqTemplate.Infrastructure.csproj", "{CF8F543B-0DF4-4BC9-9A01-E0D733FAC459}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FaqTemplate.Tests", "FaqTemplate.Tests\FaqTemplate.Tests.csproj", "{485ECD7C-FAE8-4DC4-8CA0-BC594DEB7B45}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{CF8F543B-0DF4-4BC9-9A01-E0D733FAC459}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CF8F543B-0DF4-4BC9-9A01-E0D733FAC459}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CF8F543B-0DF4-4BC9-9A01-E0D733FAC459}.Release|Any CPU.Build.0 = Release|Any CPU
+		{485ECD7C-FAE8-4DC4-8CA0-BC594DEB7B45}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{485ECD7C-FAE8-4DC4-8CA0-BC594DEB7B45}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{485ECD7C-FAE8-4DC4-8CA0-BC594DEB7B45}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{485ECD7C-FAE8-4DC4-8CA0-BC594DEB7B45}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
