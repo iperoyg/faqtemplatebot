@@ -53,6 +53,16 @@
   <ItemGroup>
     <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\FaqTemplate.Core\FaqTemplate.Core.csproj">
+      <Project>{32EA6430-E378-4A24-BA7E-4A9A43633895}</Project>
+      <Name>FaqTemplate.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FaqTemplate.Infrastructure\FaqTemplate.Infrastructure.csproj">
+      <Project>{cf8f543b-0df4-4bc9-9a01-e0d733fac459}</Project>
+      <Name>FaqTemplate.Infrastructure</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -20,14 +20,13 @@ namespace FaqTemplate.Infrastructure.Services
         public QnaMakerFaqService(QnaMakerConfiguration configuration)
         {
             _httpClient = new HttpClient();
-            _httpClient.BaseAddress = new Uri("https://westus.api.cognitive.microsoft.com/qnamaker/v1.0");
             _configuration = configuration;
         }
 
         public async Task<FaqResponse<string>> AskThenIAnswer(FaqRequest request)
         {
             var qnaRequest = new QnaMakerRequest { Question = request.Ask };
-            var requestContent = new StringContent(JsonConvert.SerializeObject(qnaRequest), Encoding.UTF8);
+            var requestContent = new StringContent(JsonConvert.SerializeObject(qnaRequest), Encoding.UTF8, "application/json");
             var requestMessage = GetRequestMessage(requestContent);
 
             var response = await _httpClient.SendAsync(requestMessage);
@@ -42,7 +41,7 @@ namespace FaqTemplate.Infrastructure.Services
         {
             var request = new HttpRequestMessage()
             {
-                RequestUri = new Uri($"/knowledgebases/{_configuration.KnowledgbaseBaseId}/generateAnswer"),
+                RequestUri = new Uri($"https://westus.api.cognitive.microsoft.com/qnamaker/v1.0/knowledgebases/{_configuration.KnowledgbaseBaseId}/generateAnswer"),
                 Method = HttpMethod.Post,
                 Content = content
             };

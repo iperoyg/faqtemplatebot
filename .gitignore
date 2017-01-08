@@ -252,4 +252,4 @@ paket-files/
 *.sln.iml
 
 #Specific Project Files
-/configs.txt
+*.faqconfig
