@@ -36,7 +36,7 @@ namespace FaqTemplate.Infrastructure.Services
             var responseContent = await response.Content.ReadAsStringAsync();
             var qnaResponse = JsonConvert.DeserializeObject<QnaMakerResponse>(responseContent);
             
-            return new FaqResponse<string> { Answer = HttpUtility.HtmlDecode(qnaResponse.Answer), Score = qnaResponse.Score };
+            return new FaqResponse<string> { Answer = HttpUtility.HtmlDecode(qnaResponse.Answer), Score = qnaResponse.Score / 100f };
         }
 
         private HttpRequestMessage GetRequestMessage(HttpContent content)
