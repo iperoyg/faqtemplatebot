@@ -9,7 +9,7 @@ using System.Diagnostics;
 using FaqTemplate.Core.Services;
 using FaqTemplate.Core.Domain;
 
-namespace FaqTemplate.Bot
+namespace FaqTemplate.Bot.Receivers
 {
     public class PlainTextMessageReceiver : IMessageReceiver
     {
@@ -46,8 +46,7 @@ namespace FaqTemplate.Bot
             {
                 await _sender.SendMessageAsync($"Infelizmente eu ainda não sei isso! Mas vou me aprimorar, prometo!", message.From, cancellationToken);
             }
-
-            await _sender.SendMessageAsync($"{response.Score}: {response.Answer}", message.From, cancellationToken);
+            
         }
     }
 }
