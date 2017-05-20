@@ -19,9 +19,7 @@ namespace FaqTemplate.Tests.Services
         [SetUp]
         public void SetUp()
         {
-            var qnaConfig = new QnaMakerConfiguration
-            {
-            };
+            var qnaConfig = new QnaMakerConfiguration {};
             _qnaMakerFaqService = new QnaMakerFaqService(qnaConfig);
         }
 

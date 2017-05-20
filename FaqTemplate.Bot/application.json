@@ -10,8 +10,8 @@
   "settingsType": "Settings",
   "settings": {
     "qnaMaker": {
-      "key": "",
-      "baseId": ""
+      "baseId": "",
+      "key": ""
     }
   },
   "startupType": "Startup",

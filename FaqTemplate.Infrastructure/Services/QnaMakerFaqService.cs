@@ -15,6 +15,7 @@ namespace FaqTemplate.Infrastructure.Services
 {
     public class QnaMakerFaqService : IFaqService<string>
     {
+        private const string QNA_BASE_URL = "https://westus.api.cognitive.microsoft.com/qnamaker/v1.0/knowledgebases";
         private readonly HttpClient _httpClient;
         private readonly QnaMakerConfiguration _configuration;
 
@@ -42,7 +43,7 @@ namespace FaqTemplate.Infrastructure.Services
         {
             var request = new HttpRequestMessage()
             {
-                RequestUri = new Uri($"https://westus.api.cognitive.microsoft.com/qnamaker/v1.0/knowledgebases/{_configuration.KnowledgbaseBaseId}/generateAnswer"),
+                RequestUri = new Uri($"{QNA_BASE_URL}/{_configuration.KnowledgbaseBaseId}/generateAnswer"),
                 Method = HttpMethod.Post,
                 Content = content
             };
