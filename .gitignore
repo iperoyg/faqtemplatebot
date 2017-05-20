@@ -254,3 +254,4 @@ paket-files/
 #Specific Project Files
 *.faqconfig
 **/application.json
+**/credentials.txt
