@@ -29,9 +29,25 @@ namespace FaqTemplate.Bot
             Trace.TraceInformation($"From: {message.From} \tContent: {message.Content}");
 
             var request = new FaqRequest { Ask = message.Content.ToString() };
-            var result = await _faqService.AskThenIAnswer(request);
+            var response = await _faqService.AskThenIAnswer(request);
 
-            await _sender.SendMessageAsync($"{result.Score}: {result.Answer}", message.From, cancellationToken);
+            if (response.Score >= 0.8)
+            {
+                await _sender.SendMessageAsync($"{response.Answer}", message.From, cancellationToken);
+            }
+            else if(response.Score >= 0.5)
+            {
+                await _sender.SendMessageAsync($"Eu acho que a resposta para o que você precisa é:", message.From, cancellationToken);
+                cancellationToken.WaitHandle.WaitOne(TimeSpan.FromSeconds(1));
+                await _sender.SendMessageAsync($"{response.Answer}", message.From, cancellationToken);
+
+            }
+            else
+            {
+                await _sender.SendMessageAsync($"Infelizmente eu ainda não sei isso! Mas vou me aprimorar, prometo!", message.From, cancellationToken);
+            }
+
+            await _sender.SendMessageAsync($"{response.Score}: {response.Answer}", message.From, cancellationToken);
         }
     }
 }
