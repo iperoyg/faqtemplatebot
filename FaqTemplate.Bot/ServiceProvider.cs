@@ -1,4 +1,5 @@
-﻿using FaqTemplate.Core.Services;
+﻿using FaqTemplate.Core.Domain;
+using FaqTemplate.Core.Services;
 using FaqTemplate.Infrastructure.Domain;
 using FaqTemplate.Infrastructure.Services;
 using SimpleInjector;
@@ -28,7 +29,9 @@ namespace FaqTemplate.Bot
             {
                 var settings = instance as Settings;
                 var qnaConfig = new QnaMakerConfiguration { KnowledgbaseBaseId = settings.QnaMaker.BaseId, OcpApimSubscrptionKey = settings.QnaMaker.Key };
-                RegisterSingleton<IFaqService<string>>(new QnaMakerFaqService(qnaConfig));
+                var cache = new SimpleMemoryCacheService<FaqResponse<string>>();
+                RegisterSingleton<ICacheService<FaqResponse<string>>>(() => cache);
+                RegisterSingleton<IFaqService<string>>(new QnaMakerFaqService(qnaConfig, cache));
             }
             RegisterSingleton(serviceType, instance);
         }

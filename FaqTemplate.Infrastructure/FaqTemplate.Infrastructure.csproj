@@ -50,6 +50,7 @@
     <Compile Include="Domain\QnaMakerResponse.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\QnaMakerFaqService.cs" />
+    <Compile Include="Services\SimpleMemoryCacheService.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Repositories\" />

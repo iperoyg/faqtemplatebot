@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace FaqTemplate.Core.Services
 {
-    public interface ICacheService
+    public interface ICacheService<T>
     {
+        Task AddOrUpdate(string key, T value);
+        Task<T> Get(string key);
+        Task<T> Remove(string key);
+        Task Clear();
     }
 }
