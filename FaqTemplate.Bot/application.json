@@ -1,0 +1,28 @@
+﻿{
+  "identifier": "",
+  "accessKey": "",
+  "messageReceivers": [
+    {
+      "type": "PlainCommandMessageReceiver",
+      "mediaType": "text/plain",
+      "content": "/ajuda",
+      "priority": 1
+    },
+    {
+      "type": "PlainTextMessageReceiver",
+      "mediaType": "text/plain",
+      "priority": 2
+    }
+
+  ],
+  "settingsType": "Settings",
+  "settings": {
+    "qnaMaker": {
+      "baseId": "",
+      "key": ""
+    }
+  },
+  "startupType": "Startup",
+  "serviceProviderType": "ServiceProvider",
+  "schemaVersion": 2
+}
