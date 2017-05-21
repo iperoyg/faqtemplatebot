@@ -3,9 +3,18 @@
   "accessKey": "",
   "messageReceivers": [
     {
+      "mediaType": "text/plain",
+      "content": "(i?)come[cç]ar",
+      "response": {
+        "mediaType": "text/plain",
+        "resourceKey": "startmessage"
+      },
+      "priority": 1
+    },
+    {
       "type": "PlainCommandMessageReceiver",
       "mediaType": "text/plain",
-      "content": "/ajuda",
+      "content": "(i?)/ajuda",
       "priority": 1
     },
     {
