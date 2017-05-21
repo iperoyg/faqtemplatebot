@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace FaqTemplate.Core.Services
 {
-    public interface IFaqService<T>
+    public interface IFaqService<T> where T : IComparable
     {
         Task<FaqResponse<T>> AskThenIAnswer(FaqRequest request);
     }
