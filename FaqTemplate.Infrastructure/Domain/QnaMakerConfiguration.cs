@@ -9,6 +9,6 @@ namespace FaqTemplate.Infrastructure.Domain
     public class QnaMakerConfiguration
     {
         public string KnowledgbaseBaseId { get; set; }
-        public string OcpApimSubscrptionKey { get; set; }
+        public string OcpApimSubscriptionKey { get; set; }
     }
 }

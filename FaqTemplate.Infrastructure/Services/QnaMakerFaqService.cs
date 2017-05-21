@@ -59,7 +59,7 @@ namespace FaqTemplate.Infrastructure.Services
                 Content = content
             };
             request.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-            request.Headers.Add("Ocp-Apim-Subscription-Key", _configuration.OcpApimSubscrptionKey);
+            request.Headers.Add("Ocp-Apim-Subscription-Key", _configuration.OcpApimSubscriptionKey);
             return request;
         }
 
