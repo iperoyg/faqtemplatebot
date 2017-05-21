@@ -1,6 +1,8 @@
 ﻿using FaqTemplate.Core.Domain;
+using FaqTemplate.Core.Services;
 using FaqTemplate.Infrastructure.Domain;
 using FaqTemplate.Infrastructure.Services;
+using NSubstitute;
 using NUnit.Framework;
 using System;
 using System.Collections.Generic;
@@ -19,11 +21,12 @@ namespace FaqTemplate.Tests.Services
         [SetUp]
         public void SetUp()
         {
+            var cacheService = Substitute.For<ICacheService<FaqResponse<string>>>();
             var qnaConfig = new QnaMakerConfiguration
             {
                 
             };
-            _qnaMakerFaqService = new QnaMakerFaqService(qnaConfig);
+            _qnaMakerFaqService = new QnaMakerFaqService(qnaConfig, cacheService);
         }
 
         [Test]
@@ -31,8 +34,10 @@ namespace FaqTemplate.Tests.Services
         {
             //Arrange
             var faqRequest = new FaqRequest { Ask = "Hi" };
+
             //Act
             var response = await _qnaMakerFaqService.AskThenIAnswer(faqRequest);
+
             //Assert
             Assert.That(response, Is.Not.Null);
             Assert.That(response.Answer, Is.Not.Null);
