@@ -1,9 +1,13 @@
 ﻿using FaqTemplate.Core.Domain;
+using FaqTemplate.Core.Services;
 using FaqTemplate.Infrastructure.Domain;
 using FaqTemplate.Infrastructure.Services;
+using Newtonsoft.Json;
+using NSubstitute;
 using NUnit.Framework;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,16 +18,32 @@ namespace FaqTemplate.Tests.Services
     public class QnaMakerFaqServiceTest
     {
         private QnaMakerFaqService _qnaMakerFaqService;
+        private string _knowledgbaseBaseId;
+        private string _ocpApimSubscriptionKey;
 
+        [OneTimeSetUp]
+        public void ReadCredentials()
+        {
+            var file = @"D:\Projetos\GIT\FaqTemplateBot\extras\credentials.json";
+            using (var sr = new StreamReader(file))
+            {
+                var data = sr.ReadToEnd();
+                dynamic credentials = JsonConvert.DeserializeObject(data);
+                _knowledgbaseBaseId = credentials.knowledgbaseBaseId;
+                _ocpApimSubscriptionKey = credentials.ocpApimSubscriptionKey;
+            }
+        }
 
         [SetUp]
         public void SetUp()
         {
+            var cacheService = Substitute.For<ICacheService<FaqResponse<string>>>();
             var qnaConfig = new QnaMakerConfiguration
             {
-                
+                KnowledgbaseBaseId = _knowledgbaseBaseId,
+                OcpApimSubscriptionKey = _ocpApimSubscriptionKey
             };
-            _qnaMakerFaqService = new QnaMakerFaqService(qnaConfig);
+            _qnaMakerFaqService = new QnaMakerFaqService(qnaConfig, cacheService);
         }
 
         [Test]
@@ -31,8 +51,10 @@ namespace FaqTemplate.Tests.Services
         {
             //Arrange
             var faqRequest = new FaqRequest { Ask = "Hi" };
+
             //Act
             var response = await _qnaMakerFaqService.AskThenIAnswer(faqRequest);
+
             //Assert
             Assert.That(response, Is.Not.Null);
             Assert.That(response.Answer, Is.Not.Null);

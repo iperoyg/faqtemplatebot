@@ -28,7 +28,7 @@ namespace FaqTemplate.Bot
             if (serviceType == typeof(Settings))
             {
                 var settings = instance as Settings;
-                var qnaConfig = new QnaMakerConfiguration { KnowledgbaseBaseId = settings.QnaMaker.BaseId, OcpApimSubscrptionKey = settings.QnaMaker.Key };
+                var qnaConfig = new QnaMakerConfiguration { KnowledgbaseBaseId = settings.QnaMaker.BaseId, OcpApimSubscriptionKey = settings.QnaMaker.Key };
                 var cache = new SimpleMemoryCacheService<FaqResponse<string>>();
                 RegisterSingleton<ICacheService<FaqResponse<string>>>(() => cache);
                 RegisterSingleton<IFaqService<string>>(new QnaMakerFaqService(qnaConfig, cache));

@@ -22,7 +22,7 @@ namespace FaqTemplate.Bot.Receivers
 
         public async Task ReceiveAsync(Message envelope, CancellationToken cancellationToken = default(CancellationToken))
         {
-            var command = envelope.Content.ToString();
+            var command = envelope.Content.ToString().ToLower();
 
             if("/ajuda".Equals(command))
             {
