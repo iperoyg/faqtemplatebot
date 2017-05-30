@@ -8,19 +8,22 @@ using Lime.Protocol;
 using Takenet.MessagingHub.Client.Listener;
 using Takenet.MessagingHub.Client.Sender;
 using Takenet.MessagingHub.Client;
+using Takenet.MessagingHub.Client.Extensions.Bucket;
 
 namespace FaqTemplate.Bot.Receivers
 {
-    public class PlainCommandMessageReceiver : IMessageReceiver
+    public class PlainCommandMessageReceiver : BaseMessageReceiver
     {
         private readonly IMessagingHubSender _sender;
 
-        public PlainCommandMessageReceiver(IMessagingHubSender sender)
+        public PlainCommandMessageReceiver(
+            IMessagingHubSender sender, 
+            IBucketExtension bucket) : base(bucket)
         {
             _sender = sender;
         }
 
-        public async Task ReceiveAsync(Message envelope, CancellationToken cancellationToken = default(CancellationToken))
+        public override async Task ReceiveAsync(Message envelope, CancellationToken cancellationToken = default(CancellationToken))
         {
             var command = envelope.Content.ToString().ToLower();
 

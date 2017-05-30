@@ -3,24 +3,41 @@
   "accessKey": "",
   "messageReceivers": [
     {
+      "type": "CpfNeedReceiver",
+      "mediaType": "text/plain",
+      "state": "needCpf",
+      "content": "((^\\d)*\\d\\s*\\d\\s*\\d(\\s|\\-|\\.)*\\d\\s*\\d\\s*\\d(\\s|\\-|\\.)*\\d\\s*\\d\\s*\\d(\\s|\\-|\\.)*\\d\\s*\\d(^\\d)*)",
+      "outState": "default",
+      "priority": 1
+    },
+    {
+      "mediaType": "text/plain",
+      "state": "needCpf",
+      "priority": 2,
+      "response": {
+        "mediaType": "text/plain",
+        "plainContent": "Então... Me manda um cpf no formato \"000.000.000-00\", por favor!"
+      }
+    },
+    {
       "mediaType": "text/plain",
       "content": "(i?)come[cç]ar",
       "response": {
         "mediaType": "text/plain",
         "resourceKey": "startmessage"
       },
-      "priority": 1
+      "priority": 5
     },
     {
       "type": "PlainCommandMessageReceiver",
       "mediaType": "text/plain",
       "content": "(i?)/ajuda",
-      "priority": 1
+      "priority": 5
     },
     {
       "type": "PlainTextMessageReceiver",
       "mediaType": "text/plain",
-      "priority": 2
+      "priority": 10
     }
 
   ],
